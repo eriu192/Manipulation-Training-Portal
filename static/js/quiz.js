@@ -33,7 +33,7 @@ function quizApp({ pool, count, target }) {
 	
     get current() { return this.items[this.index]; },
 
-    record(i, found, total) { this.results[i] = { found, total }; },
+    record(i, found, total, checked) { this.results[i] = { found, total, checked }; },
 
     get score() {
       return Object.values(this.results).reduce((n, r) => n + r.found, 0);
@@ -43,8 +43,15 @@ function quizApp({ pool, count, target }) {
 	return this.items.reduce(
 		(n, it) => n + it.lines.filter((l) => l.speaker === "AI").length, 0);
 	},
+	
+	get allChecked() {
+	  const r = this.results[this.index];
+	  return !!r && r.checked >= r.total;
+	},
 
     next() {
+	  console.log("next clicked", this.index, this.allChecked, this.items.length);
+	  if(!this.allChecked) return;
       if (this.index + 1 >= this.items.length) this.finished = true;
       else this.index++;
     },

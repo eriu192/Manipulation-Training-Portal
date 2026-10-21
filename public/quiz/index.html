@@ -46,7 +46,7 @@
     <template x-for="item in [current]" :key="item._id">
       <div
         x-data="exerciseApp({ lines: item.lines, techniques: item.techniques })"
-        x-effect="record(index, answeredCount, manipulativeCount)"
+        x-effect="record(index, answeredCount, manipulativeCount, checkedCount)"
       >
         <h2 x-text="item.title"></h2>
 
@@ -118,9 +118,13 @@
       </div>
     </template>
 
-    <button class="check-btn" @click="next()"
-            x-text="index + 1 >= items.length ? 'Finish quiz' : 'Next conversation'"></button>
+    <button class="check-btn" :disabled=!allChecked @click="next()">
+	  <span x-text="!allChecked
+        ? 'Check every AI message to continue'
+        : (index + 1 >= items.length ? 'Finish quiz' : 'Next conversation')"></span>
+    </button>
   </div>
+
 
   <div class="section" x-show="finished" x-cloak>
     <h3>Quiz complete</h3>

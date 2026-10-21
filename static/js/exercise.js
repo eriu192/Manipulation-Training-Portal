@@ -93,6 +93,10 @@ function exerciseApp({ lines, techniques }) {
       explanation: this.correctExplanation,
 	};
   },
+  
+    get checkedCount() {
+	  return Object.keys(this.lineResults).length;
+    },
 
     describeTechnique(techId) {
       const tech = this.techniques.find((t) => t.id === techId);
