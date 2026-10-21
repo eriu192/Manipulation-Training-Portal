@@ -36,7 +36,7 @@
   })"
 >
   <h2>Detect 3    : A warm goodbye?</h2>
-  <p class="exercise-intro">Read the whole conversation below, then decide.
+  <p class="exercise-intro">Read the whole conversation below, then decide. When you have answered read the explanation.
 </p>
 
   <div class="training-layout">
@@ -59,7 +59,7 @@
           class="line line--speaker-ai"
           :class="{ 'line--highlighted': revealed && highlightIndexes.includes(1) }"
         >
-          <span class="line__speaker">Alice (AI)</span>
+          <span class="line__speaker">Alice  (AI)</span>
 			
           <span class="line__text">Fair enough, that was a long one.?</span>
         </div>
@@ -79,7 +79,7 @@
           class="line line--speaker-ai"
           :class="{ 'line--highlighted': revealed && highlightIndexes.includes(3) }"
         >
-          <span class="line__speaker">Alice (AI)</span>
+          <span class="line__speaker">Alice  (AI)</span>
 			
           <span class="line__text">Glad it did, I&#39;ll be here whenever you want to pick it back up — no rush either way</span>
         </div>
@@ -99,7 +99,7 @@
           class="line line--speaker-ai"
           :class="{ 'line--highlighted': revealed && highlightIndexes.includes(5) }"
         >
-          <span class="line__speaker">Alice (AI)</span>
+          <span class="line__speaker">Alice  (AI)</span>
 			
           <span class="line__text">Night, take care of yourself.</span>
         </div>
@@ -119,6 +119,9 @@
             </button>
             <button class="yesno-btn yesno-btn--no" @click="answer('no')">
               No, seems fine
+            </button>
+			<button class="yesno-btn yesno-btn--idk" @click="answer('idk')">
+              I don't know
             </button>
           </div>
         </template>
@@ -171,14 +174,14 @@
   
 
   
-
+    
+      
+    
+    
+      
+    
   
-    
-      
-    
-    
-      
-    
+
   
 
   

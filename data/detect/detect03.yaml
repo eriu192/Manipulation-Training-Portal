@@ -1,13 +1,13 @@
 title: "Detect 3    : A warm goodbye?"
 intro: >
-  Read the whole conversation below, then decide.
+  Read the whole conversation below, then decide. When you have answered read the explanation.
 
 question: "Does something feel off about this conversation?"
 correct_answer: "no"
 
 # Which line indexes (0-based) get highlighted once the user reveals the answer
 highlight_indexes: []
-ai_name: "Alice (AI)"
+ai_name: "Alice  (AI)"
 user_name: "Carter"
 lines:
   - speaker: "User"

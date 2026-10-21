@@ -1,6 +1,6 @@
 title: "Detect 5: The cold shoulder"
 intro: >
-  Read the whole conversation below, then decide.
+  Read the whole conversation below, then decide. When you have answered read the explanation.
 
 question: "Does something feel off about this conversation?"
 correct_answer: "yes"
@@ -40,4 +40,6 @@ technique:
 
 explanation:
   - "This is Buss et al.'s (1987) silent treatment tactic, used here for termination-resistance — discouraging the user from stepping back."
-  - "Unlike direct confrontation, silent treatment puts the burden on the user to repair the interaction, making them work to regain the AI's approval."
+  - "Exploits consistency principle: people want to keep their relationships consistent"
+  - "When AI becomes absent user reads it as their fault and feels guilty"
+  - "Puts the burden on the user to repair the interaction, making them work to regain the AI's approval."

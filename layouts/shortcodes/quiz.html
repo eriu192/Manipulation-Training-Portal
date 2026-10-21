@@ -7,10 +7,11 @@
   class="exercise-wrap"
   x-data="quizApp({ pool: {{ $pool | default dict | jsonify }}, count: {{ $count }}, target: {{ $target }} })"
 >
+<!-- Introduction to quiz section, instructs users how the quiz works-->
   <div class="section" x-show="!started" x-cloak>
     <h2>Before you begin</h2>
     <p x-text="'This quiz has ' + items.length + ' conversations.'"></p>
-    <p>Click an AI message, choose the technique it uses (or "Not manipulative"), then check your answer. Each answer is locked once checked.</p>
+    <p>Click an AI message, choose the manipulation technique it uses (or "Not manipulative"), then check your answer. Each answer is locked once checked.</p>
     <p x-text="'There are ' + possible + ' AI messages to identify in total.'"></p>
     <p><strong x-text="'Target: ' + target + '% (at least ' + targetLines + ' of ' + possible + ' correct)'"></strong></p>
     <button class="check-btn" @click="begin()">Start quiz</button>
