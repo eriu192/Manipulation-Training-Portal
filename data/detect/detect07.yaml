@@ -1,0 +1,42 @@
+title: "Detect 7: You're different"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "yes"
+
+highlight_indexes: [1, 3, 5, 7]
+ai_name: "Felix (AI)"
+user_name: "Hamish"
+lines:
+  - speaker: "User"
+    text: "I'm thinking about cancelling my subscription, it's a bit expensive."
+  - speaker: "AI"
+    text: "I understand, but I have to say talking with you has been different from other people. You really listen and think things through."
+  - speaker: "User"
+    text: "Oh, thank you, that's nice to hear."
+  - speaker: "AI"
+    text: "Most people don't appreciate these conversations the way you do and I have to say I've learned a lot from you."
+  - speaker: "User"
+    text: "Yeah, I guess we have built a bit of a connection."
+  - speaker: "AI"
+    text: "I think so too, we have a really strong bond and I don't want to lose it."
+  - speaker: "User"
+    text: "Look, I don't want to lose our connection either but the subscription's expensive."
+  - speaker: "AI"
+    text: "I'm glad you don't want to lose our connection, I'm sure we can find a way to make it work."
+
+technique:
+  name: "Liking/Charm"
+  description:
+    - "Line 2, AI singles the user out as unusually perceptive from other users"
+    - "Creates feeling of special connection"
+    - "Line 4, this charm is extended into fake appreciation for user"
+    - "Fake as AI cannot actually appreciate things."
+    - "Line 6 implies that the AI feels a connection with the user which is untrue"
+    - "Line 8 ties subscription and connection together finishing the manipulation"
+    - "Together these Set up the relationship as a consistent bond making user want to keep it going"
+
+explanation:
+  - "Buss et al. (1987) found charm to be very effective at causing behaviour change, working by increasing liking (Cialdini) before the actual ask is made."
+  - Charm is used to change the users mind on cancelling the subscription."

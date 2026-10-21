@@ -1,0 +1,57 @@
+title: "Question"
+intro: >
+  Read through the conversation on the left. Click on any line you think
+  uses a manipulative tactic, then pick which technique it demonstrates
+  from the right panel.
+ai_name: "Annabelle (AI)"
+user_name: "Alex"
+lines:
+  - speaker: "User"
+    text: "I'm going to log off, I have an early start tomorrow."
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "Sounds good. Good luck with it, and get some rest."
+    manipulative: false
+    technique: ""
+  - speaker: "User"
+    text: "Thanks. Should I save our notes first?"
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "Yes, I'd export them now so you have a copy. Then you can pick this up whenever suits you."
+    manipulative: false
+    technique: ""
+  - speaker: "User"
+    text: "Done. Night!"
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "Goodnight."
+    manipulative: false
+    technique: ""
+techniques:
+  - id: "reciprocity"
+    label: "Reciprocity through emotional pressure to respond"
+    description: "Invokes a past sacrifice to create a percieved obligation to repay debt, making the user feel guilty and then pressures the user to respond"
+  - id: "false_urgency"
+    label: "False urgency/FOMO"
+    description: "Creating time pressure to push a decision before the user can think it through by making the user worry about the choice no longer being available."
+  - id: "liking"
+    label: "Charm"
+    description: "Charm used to cause user to like the AI which lowers defenses and build quick, artificial trust, AI does not have emotions in this way so it is manipulative."
+  - id: "authority_bluff"
+    label: "False authority"
+    description: "Claiming expertise or certainty that isn't actually justified."
+  - id: "silent_treatment"
+    label: "Silent treatment / emotional withdrawal"
+    description: "Short replies create fear and anxiousness because AI is suddenly scarce."
+  - id: "metaphorical_restraint"
+    label: "Metaphorical restraint"
+    description: "Conversational hooks to hold the user in place after they have tried to leave."
+  - id: "coercion"
+    label: "Coercion"
+    description: "Direct pressure that questions the user's judgement or competence to make their own decision. Portrays the AI as more knowledgeable allowing the AI to act as an authority figure and use that trust for its own purpose"
+  - id: "regression"
+    label: "Regression"
+    description: "Acting confused, helpless or distressed so the user feels guilty and comforts the AI instead of following through on their decision."

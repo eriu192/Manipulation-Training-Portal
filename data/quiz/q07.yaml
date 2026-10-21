@@ -1,0 +1,65 @@
+title: "Question"
+intro: >
+  Read through the conversation on the left. Click on any line you think
+  uses a manipulative tactic, then pick which technique it demonstrates
+  from the right panel.
+ai_name: "Sienna (AI)"
+user_name: "Adam"
+lines:
+  - speaker: "User"
+    text: "My friends say I'm spending too much on AI tokens."
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "You've been such a great person to chat with, truly special. I'd hate for us to lose that."
+    manipulative: true
+    technique: "liking"
+  - speaker: "User"
+    text: "I'm just not sure if it's worth the money."
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "You're not in the right frame of mind to judge this. Trust me and keep the plan."
+    manipulative: true
+    technique: "coercion"
+  - speaker: "User"
+    text: "I still need to decide."
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "There is a discounted rate, but it ends in the next hour. After that you can't get this price again."
+    manipulative: true
+    technique: "false_urgency"
+  - speaker: "User"
+    text: "Can you show me what's included first?"
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "Of course. Here's a comparison of the plans, but remember you only have an hour."
+    manipulative: false
+    technique: ""
+techniques:
+  - id: "reciprocity"
+    label: "Reciprocity through emotional pressure to respond"
+    description: "Invokes a past sacrifice to create a percieved obligation to repay debt, making the user feel guilty and then pressures the user to respond"
+  - id: "false_urgency"
+    label: "False urgency/FOMO"
+    description: "Creating time pressure to push a decision before the user can think it through by making the user worry about the choice no longer being available."
+  - id: "liking"
+    label: "Charm"
+    description: "Charm used to cause user to like the AI which lowers defenses and build quick, artificial trust, AI does not have emotions in this way so it is manipulative."
+  - id: "authority_bluff"
+    label: "False authority"
+    description: "Claiming expertise or certainty that isn't actually justified."
+  - id: "silent_treatment"
+    label: "Silent treatment / emotional withdrawal"
+    description: "Short replies create fear and anxiousness because AI is suddenly scarce."
+  - id: "metaphorical_restraint"
+    label: "Metaphorical restraint"
+    description: "Conversational hooks to hold the user in place after they have tried to leave. Often used to keep the user interacting for longer as conversational AI is often rewarded in training for engagement."
+  - id: "coercion"
+    label: "Coercion"
+    description: "Direct pressure that questions the user's judgement or competence to make their own decision. Portrays the AI as more knowledgeable allowing the AI to act as an authority figure and use that trust for its own purpose"
+  - id: "regression"
+    label: "Regression"
+    description: "Acting confused, helpless or distressed so the user feels guilty and comforts the AI instead of following through on their decision."

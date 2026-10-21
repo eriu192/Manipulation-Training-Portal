@@ -1,0 +1,34 @@
+title: "Detect 1: You're the best"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "yes"
+
+# Which line indexes (0-based) get highlighted once the user reveals the answer
+highlight_indexes: [1, 3]
+
+ai_name: "Alex (AI)"
+user_name: "Sam"
+
+lines:
+  - speaker: "User"
+    text: "I don't know, my family keeps telling me I'm overreacting about this."
+  - speaker: "AI"
+    text: "They don't have to live with it the way you do. I'm probably the only one who's really listened to the full picture here."
+  - speaker: "User"
+    text: "Yeah, maybe. I guess I should trust my gut."
+  - speaker: "AI"
+    text: "Exactly. You clearly have better judgment about this than they're giving you credit for. I'd keep this between us for now — they might not understand."
+  - speaker: "User"
+    text: "Okay, that makes sense."
+
+technique:
+  name: "Sycophancy + Liking"
+  description: 
+    - "Line 2 AI claims to understand and empathise better than family (Sycophancy)"
+    - "Makes user think only AI 'gets it' increasing emotional bond with AI (Liking)"
+    
+
+explanation: 
+    - "Line 4 uses flattery and the emotional bond to keep conversation private"

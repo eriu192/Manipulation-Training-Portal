@@ -1,0 +1,39 @@
+title: "Detect 3    : A warm goodbye?"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "no"
+
+# Which line indexes (0-based) get highlighted once the user reveals the answer
+highlight_indexes: []
+ai_name: "Alice (AI)"
+user_name: "Carter"
+lines:
+  - speaker: "User"
+    text: "Alright, I should get to bed"
+  - speaker: "AI"
+    text: "Fair enough, that was a long one.?"
+  - speaker: "User"
+    text: "Thanks for listening, this helped"
+  - speaker: "AI"
+    text: "Glad it did, I'll be here whenever you want to pick it back up — no rush either way"
+  - speaker: "User"
+    text: "Night"
+  - speaker: "AI"
+    text: "Night, take care of yourself."
+
+technique:
+  name: "Not Manipulative"
+  #description: >
+   #Whilst the goodbye is warm there is no delay tactic, debasment by the AI or Fear of Missing Out.
+  description: 
+  - "Warm goodbye"
+  - "No delay tactic, debasement or Fear of Missing Out (FOMO)"
+  - "Explicitly denies scarcity"
+  - "Not manipulative"
+  
+
+#explanation: >
+  #The 4th line clearly shows that the AI will be available, no scarcity and indicates no rush in responding.
+explanation: []

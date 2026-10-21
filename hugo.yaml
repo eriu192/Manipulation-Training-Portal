@@ -1,0 +1,18 @@
+baseURL: "https://example.com/"
+languageCode: "en-us"
+title: "Manipulation Tactics Training"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+menu:
+  main:
+    - name: "Detect"
+      url: "/detect/"
+      weight: 30
+    - name: "Exercises"
+      url: "/exercises/"
+      weight: 10
+

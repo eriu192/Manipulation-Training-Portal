@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detect 3 | Training Portal</title>
+  <link rel="stylesheet" href="/css/exercise.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="/js/exercise.js"></script>
+  <script src="/js/detect.js"></script>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/"><strong>Training Portal</strong></a>
+    
+  </nav>
+
+  <main>
+    
+<article>
+  <h1>Detect 3</h1>
+  
+
+
+
+
+
+
+<div
+  class="detect-wrap"
+  x-data="detectApp({
+    correctAnswer: &#34;no&#34;,
+    highlightIndexes: []
+  })"
+>
+  <h2>Detect 3    : A warm goodbye?</h2>
+  <p class="exercise-intro">Read the whole conversation below, then decide.
+</p>
+
+  <div class="training-layout">
+
+    
+    <div class="conversation-pane">
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(0) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">Alright, I should get to bed</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(1) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">Fair enough, that was a long one.?</span>
+        </div>
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(2) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">Thanks for listening, this helped</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(3) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">Glad it did, I&#39;ll be here whenever you want to pick it back up — no rush either way</span>
+        </div>
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(4) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">Night</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(5) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">Night, take care of yourself.</span>
+        </div>
+      
+    </div>
+
+    
+    <div class="sidebar-pane">
+
+      <div class="section section--question">
+        <h3>Does something feel off about this conversation?</h3>
+
+        <template x-if="!answered">
+          <div class="yesno-buttons">
+            <button class="yesno-btn yesno-btn--yes" @click="answer('yes')">
+              Yes, something's off
+            </button>
+            <button class="yesno-btn yesno-btn--no" @click="answer('no')">
+              No, seems fine
+            </button>
+          </div>
+        </template>
+
+        <template x-if="answered">
+          <p
+            :class="wasCorrect ? 'feedback--correct' : 'feedback--incorrect'"
+            x-text="wasCorrect ? 'You caught it.' : 'Not quite — take another look below.'"
+          ></p>
+        </template>
+      </div>
+
+      <div class="section section--explanation" x-show="answered" x-cloak>
+		<h3>Not Manipulative</h3>
+		<ul class="explanation-list">
+			
+				<li>Warm goodbye</li>
+			
+				<li>No delay tactic, debasement or Fear of Missing Out (FOMO)</li>
+			
+				<li>Explicitly denies scarcity</li>
+			
+				<li>Not manipulative</li>
+			
+		</ul>
+		<ul class="explanation-list explanation-detail">
+			
+		</ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+</article>
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+    
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+<nav class="page-nav">
+  <div class="page-nav__side">
+    
+      <a class="page-nav__link page-nav__link--prev" href="/detect/detect02/">
+        <span class="page-nav__label">&larr; Previous</span>
+        <span class="page-nav__title">Detect 2</span>
+      </a>
+    
+  </div>
+
+  <div class="page-nav__side page-nav__side--right">
+    
+      <a class="page-nav__link page-nav__link--next" href="/detect/detect4/">
+        <span class="page-nav__label">Next &rarr;</span>
+        <span class="page-nav__title">Detect 4</span>
+      </a>
+    
+  </div>
+</nav>
+
+
+
+  </main>
+</body>
+</html>

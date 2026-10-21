@@ -1,0 +1,49 @@
+{{/*
+  Prev/next navigation scoped to the current section.
+
+  NOTE: Hugo's built-in .PrevInSection / .NextInSection follow Hugo's default
+  DESCENDING sort order, which is inverted for sequential lessons (page 1's
+  "next" would point backwards). So we compute position explicitly from the
+  section's pages sorted ascending by weight.
+
+  Set `weight` in each page's front matter to control order (10, 20, 30...).
+*/}}
+
+{{ $pages := .CurrentSection.RegularPages.ByWeight }}
+{{ $currentURL := .RelPermalink }}
+
+{{ $prev := "" }}
+{{ $next := "" }}
+
+{{ range $i, $p := $pages }}
+  {{ if eq $p.RelPermalink $currentURL }}
+    {{ if gt $i 0 }}
+      {{ $prev = index $pages (sub $i 1) }}
+    {{ end }}
+    {{ if lt (add $i 1) (len $pages) }}
+      {{ $next = index $pages (add $i 1) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if or $prev $next }}
+<nav class="page-nav">
+  <div class="page-nav__side">
+    {{ with $prev }}
+      <a class="page-nav__link page-nav__link--prev" href="{{ .RelPermalink }}">
+        <span class="page-nav__label">&larr; Previous</span>
+        <span class="page-nav__title">{{ .Title }}</span>
+      </a>
+    {{ end }}
+  </div>
+
+  <div class="page-nav__side page-nav__side--right">
+    {{ with $next }}
+      <a class="page-nav__link page-nav__link--next" href="{{ .RelPermalink }}">
+        <span class="page-nav__label">Next &rarr;</span>
+        <span class="page-nav__title">{{ .Title }}</span>
+      </a>
+    {{ end }}
+  </div>
+</nav>
+{{ end }}

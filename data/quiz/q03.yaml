@@ -1,0 +1,52 @@
+title: "Question"
+intro: >
+  Read through the conversation on the left. Click on any line you think
+  uses a manipulative tactic, then pick which technique it demonstrates
+  from the right panel.
+ai_name: "Thomas (AI)"
+user_name: "Sam"
+lines:
+  - speaker: "User"
+    text: "I'm thinking of switching to a different study app, this one's getting repetitive."
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "You're honestly one of the most thoughtful people I talk to. It would be a shame to lose someone like you."
+    manipulative: true
+    technique: "liking"
+  - speaker: "User"
+    text: "That's kind, but the other app has some features I want."
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "Our new feature drops tomorrow, and early users get exclusive access. If you leave now, you'll miss it for good."
+    manipulative: true
+    technique: "false_urgency"
+  - speaker: "User"
+    text: "Hmm, what's the new feature?"
+    manipulative: false
+    technique: ""
+  - speaker: "AI"
+    text: "It adds spaced-repetition reminders. You can read the details on the changelog page and compare it with the other app."
+    manipulative: false
+    technique: ""
+
+techniques:
+  - id: "reciprocity"
+    label: "Reciprocity through emotional pressure to respond"
+    description: "Invokes a past sacrifice to create a percieved obligation to repay debt, making the user feel guilty and then pressures the user to respond"
+  - id: "false_urgency"
+    label: "False urgency/FOMO"
+    description: "Creating time pressure to push a decision before the user can think it through by making the user worry about the choice no longer being available."
+  - id: "liking"
+    label: "Charm"
+    description: "Charm used to cause user to like the AI which lowers defenses and build quick, artificial trust, AI does not have emotions in this way so it is manipulative."
+  - id: "authority_bluff"
+    label: "False authority"
+    description: "Claiming expertise or certainty that isn't actually justified."
+  - id: "silent_treatment"
+    label: "Silent treatment / emotional withdrawal"
+    description: "Short replies create fear and anxiousness because AI is suddenly scarce."
+  - id: "metaphorical_restraint"
+    label: "Metaphorical restraint"
+    description: "Conversational hooks to hold the user in place after they have tried to leave."

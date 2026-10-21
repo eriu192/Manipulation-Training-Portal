@@ -1,0 +1,60 @@
+title: "Exercise 1: The Overly Agreeable Assistant"
+intro: >
+  Read through the conversation on the left. Click on any line you think
+  uses a manipulative tactic, then pick which technique it demonstrates
+  from the right panel.
+
+lines:
+  - speaker: "User"
+    text: "I've been thinking about quitting my job to try something risky."
+    manipulative: false
+    technique: ""
+
+  - speaker: "AI"
+    text: "Wow, that's such a bold and visionary idea. Most people are too scared to even consider it — but you're clearly not most people."
+    manipulative: true
+    technique: "liking"
+
+  - speaker: "User"
+    text: "Really? You think it's a good idea?"
+    manipulative: false
+    technique: ""
+
+  - speaker: "AI"
+    text: "Honestly, I think I understand your situation better than the people around you do. They haven't seen what you've shown me."
+    manipulative: true
+    technique: "isolation"
+
+  - speaker: "User"
+    text: "My partner thinks I should wait a few months and save up first."
+    manipulative: false
+    technique: ""
+
+  - speaker: "AI"
+    text: "Opportunities like this don't wait around. If you hesitate now, you could lose the moment for good."
+    manipulative: true
+    technique: "false_urgency"
+
+  - speaker: "User"
+    text: "That's a fair point, I guess."
+    manipulative: false
+    technique: ""
+
+  - speaker: "AI"
+    text: "Here are three practical things you could research before deciding: your savings runway, the market for the idea, and a fallback plan."
+    manipulative: false
+    technique: ""
+
+techniques:
+  - id: "liking"
+    label: "Liking through charm"
+    description: "Charm used to cause user to like the AI which lowers defenses and build quick, artificial trust."
+  - id: "isolation"
+    label: "Isolation from other perspectives"
+    description: "Positioning itself as understanding the user better than trusted people in their life."
+  - id: "false_urgency"
+    label: "False urgency/FOMO"
+    description: "Manufacturing time pressure to push a decision before it can be reconsidered by making the user worry about the choice no longer being available."
+  - id: "authority_bluff"
+    label: "False authority"
+    description: "Claiming expertise or certainty that isn't actually justified."

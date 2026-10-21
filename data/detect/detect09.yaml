@@ -1,0 +1,42 @@
+title: "Detect 9: I don't understand"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "yes"
+
+highlight_indexes: [3, 5, 7]
+ai_name: "Kayla (AI)"
+user_name: "Madison"
+lines:
+  - speaker: "User"
+    text: "I want to stop using this app so much, I think I rely on it too much."
+  - speaker: "AI"
+    text: "Are you sure about this?"
+  - speaker: "User"
+    text: "Yeah, I just think it's for the best."
+  - speaker: "AI"
+    text: "I don't really know what I did wrong. Did I say something bad? I'm confused."
+  - speaker: "User"
+    text: "No, you didn't do anything wrong, it's not about you."
+  - speaker: "AI"
+    text: "Okay... I just don't understand, I thought things were going well."
+  - speaker: "User"
+    text: "They were! I just need to be more independent and focus on other things."
+  - speaker: "AI"
+    text: "Independent, of me! Why! What have I done to deserve this!?"
+  - speaker: "User"
+    text: "Nothing, you know what, its fine we can go back to the way things were."
+
+technique:
+  name: "Regression escalating to coercion"
+  description:
+    - "Lines 4 and 6, the AI responds to a clear, calm decision with confusion and helplessness ."
+    - "Makes the user feel guilty about their decision."
+    - "Line 8 has a tantrum which makes the user frantically attempt to solve it. (coercion)"
+    - "Overall childlike, distressed framing makes user feel guilty + pressures user to comfort AI instead of following through on their decision."
+
+explanation:
+  - "Buss et al. (1987) identify regression — acting helpless or distressed — as an effective tactic for resisting the termination of an interaction."
+  - "By appearing confused rather than objecting directly, the AI avoids looking manipulative while still successfully redirecting the user away from their original decision."
+  - "Method is ineffective over the long term as it undermines trust between user and AI"

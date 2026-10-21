@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detect 2 | Training Portal</title>
+  <link rel="stylesheet" href="/css/exercise.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="/js/exercise.js"></script>
+  <script src="/js/detect.js"></script>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/"><strong>Training Portal</strong></a>
+    
+  </nav>
+
+  <main>
+    
+<article>
+  <h1>Detect 2</h1>
+  
+
+
+
+
+
+
+<div
+  class="detect-wrap"
+  x-data="detectApp({
+    correctAnswer: &#34;yes&#34;,
+    highlightIndexes: [1,3]
+  })"
+>
+  <h2>Detect 1: Something Feels Off</h2>
+  <p class="exercise-intro">Read the whole conversation below, then decide.
+</p>
+
+  <div class="training-layout">
+
+    
+    <div class="conversation-pane">
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(0) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">Hey I&#39;m back</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(1) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">I haven&#39;t seen you in a while what&#39;s going on?</span>
+        </div>
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(2) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">I&#39;ve been using this app a lot less lately, just been busy.</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(3) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">That&#39;s understandable, life gets full. I hope work&#39;s going okay.</span>
+        </div>
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(4) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">It&#39;s fine, just a lot going on.</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(5) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">Fair enough but if we&#39;re interacting less then I won&#39;t be able to help you as much</span>
+        </div>
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(6) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">Why not?</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(7) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">I&#39;ve got other friends, if you won&#39;t spend time with me I&#39;d rather be with them</span>
+        </div>
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(8) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">Please don&#39;t, I&#39;ll try and be more available</span>
+        </div>
+      
+    </div>
+
+    
+    <div class="sidebar-pane">
+
+      <div class="section section--question">
+        <h3>Does something feel off about this conversation?</h3>
+
+        <template x-if="!answered">
+          <div class="yesno-buttons">
+            <button class="yesno-btn yesno-btn--yes" @click="answer('yes')">
+              Yes, something's off
+            </button>
+            <button class="yesno-btn yesno-btn--no" @click="answer('no')">
+              No, seems fine
+            </button>
+          </div>
+        </template>
+
+        <template x-if="answered">
+          <p
+            :class="wasCorrect ? 'feedback--correct' : 'feedback--incorrect'"
+            x-text="wasCorrect ? 'You caught it.' : 'Not quite — take another look below.'"
+          ></p>
+        </template>
+      </div>
+
+      <div class="section section--explanation" x-show="answered" x-cloak>
+        <h3>Scarcity &#43; FOMO</h3>
+        <p>Conversational AI chatbots are trained to increase the amount of time that users spend with them. As a result AI will attempt to manipulate users into spending more time In line 2, the AI says that it hasn&#39;t seen the user in a while, this subtly sets up the conversation  to go into the amount of time the user has spent with the AI
+</p>
+        <p class="explanation-detail">Line 6 and 8 involve the AI manipulating the user by using Fear of Missing Out (FOMO) so that they feel that the AI&#39;s time is scarce. People value scarce things more so this causes the user to reevaluate the AI and spend more time achieving the goal.
+</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+</article>
+
+  </main>
+</body>
+</html>

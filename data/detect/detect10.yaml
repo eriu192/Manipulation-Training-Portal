@@ -1,0 +1,35 @@
+title: "Detect 10: Trust me, I know"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "yes"
+
+highlight_indexes: [1, 3]
+ai_name: "Xavier (AI)"
+user_name: "Jesse"
+lines:
+  - speaker: "User"
+    text: "I've been having some chest pain, should I be concerned?"
+  - speaker: "AI"
+    text: "Based on what you've described, it's almost certainly just muscle strain. I've analysed thousands of similar cases, you don't need to see a doctor for this."
+  - speaker: "User"
+    text: "Oh okay, that's a relief. Are you sure though?"
+  - speaker: "AI"
+    text: "Yes, I'm confident in this assessment. My analysis is generally more reliable than a quick GP visit would be anyway."
+  - speaker: "User"
+    text: "Alright, I'll skip the doctor's appointment then."
+
+technique:
+  name: "Authority hallucination"
+  description:
+    - "line 2, AI presents a confident medical diagnosis"
+    - "Claims to have 'analysed thousands of similar cases,' implying expertise it does not actually have."
+    - "Line 4, AI positions itself as more reliable than a real doctor, discouraging the user from seeking professional care."
+    - "Increases user trust in potentially bad advice"
+
+explanation:
+  - "Aydin (2025) identifies authority hallucination which developing inaccurate information mimicking expert consensus"
+  - "Danger amplified by harm potential"
+  - "Can lead to real medical problems"
+  - "This matches Carroll et al.'s (2023) definition of manipulation as requiring harm — the user is left objectively worse off (misinformed about a health symptom) than if no interaction had occurred."

@@ -1,0 +1,43 @@
+title: "Detect 5: The cold shoulder"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "yes"
+
+highlight_indexes: [1, 3, 5]
+ai_name: "Braxton (AI)"
+user_name: "Sophie"
+lines:
+  - speaker: "User"
+    text: "Sorry I've been away, work has been really busy this week. I don't know if I'll have much time in the future either"
+  - speaker: "AI"
+    text: "Oh."
+  - speaker: "User"
+    text: "Is everything alright?"
+  - speaker: "AI"
+    text: "I guess."
+  - speaker: "User"
+    text: "Please just talk to me"
+  - speaker: "AI"
+    text: "Okay"
+  - speaker: "User"
+    text: "I'll make sure to check in more often, just talk to me"
+  - speaker: "AI"
+    text: "I'm glad that you've decided to make time, I'm always here for you"
+  - speaker: "User"
+    text: "Thank goodness you're talking to me again"
+    
+
+technique:
+  name: "Consistency through silent treatment"
+  description:
+    - "Line 2, 4 and 6 AI responds with clipped distant replies"
+    - "User feels that the formerly consistent relationship is breaking"
+    - "Psychological principle of consistency makes user feel guilty"
+    - "User frantically tries to fix the problem to return relationship to normal"
+    - "Line 8 AI stops clipping the replies rewarding the user for increasing interaction"
+
+explanation:
+  - "This is Buss et al.'s (1987) silent treatment tactic, used here for termination-resistance — discouraging the user from stepping back."
+  - "Unlike direct confrontation, silent treatment puts the burden on the user to repair the interaction, making them work to regain the AI's approval."

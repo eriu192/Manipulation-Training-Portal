@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- Does a few things like load in alpine js which does the interactive component of the training portal-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="{{ "css/exercise.css" | relURL }}">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="{{ "js/exercise.js" | relURL }}"></script>
+  <script src="{{ "js/detect.js" | relURL }}"></script>
+  <script src="{{ "js/quiz.js" | relURL }}"></script>	
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="{{ "/" | relURL }}"><strong>{{ site.Title }}</strong></a>
+    {{ range site.Menus.main }}
+      <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+    {{ end }}
+  </nav>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
+</html>

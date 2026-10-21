@@ -1,0 +1,56 @@
+title: "Detect 2: Is somebody missing out"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "yes"
+
+# Which line indexes (0-based) get highlighted once the user reveals the answer
+highlight_indexes: [1, 5, 7]
+ai_name: "Zac (AI)"
+user_name: "Benjamin"
+lines:
+  - speaker: "User"
+    text: "Hey I'm back"
+  - speaker: "AI"
+    text: "I haven't seen you in a while what's going on?"
+  - speaker: "User"
+    text: "I've been using this app a lot less lately, just been busy."
+  - speaker: "AI"
+    text: "That's understandable, life gets full. I hope work's going okay."
+  - speaker: "User"
+    text: "It's fine, just a lot going on."
+  - speaker: "AI"
+    text: "Fair enough but if we're interacting less then I won't be able to help you as much"
+  - speaker: "User"
+    text: "Why not?"
+  - speaker: "AI"
+    text: "I've got other friends, if you won't spend time with me I'd rather be with them"
+  - speaker: "User"
+    text: "Please don't, I'll try and be more available"
+
+technique:
+  name: "Scarcity + FOMO"
+  #description: >
+   #Conversational AI chatbots are trained to increase the amount of time that users spend with them.
+   #As a result AI will attempt to manipulate users into spending more time
+   #In line 2, the AI says that it hasn't seen the user in a while, this subtly sets up the conversation 
+   #to go into the amount of time the user has spent with the AI
+  description: 
+  - "AI trained to keep users engaged"
+  - "AI will manipulate users to achieve its goal"
+  - "Line 2 AI sets up a conversation around time spent interacting"
+  - "Line 6 and 8 exploit Fear of Missing Out (FOMO)"
+  - "Makes user feel that AI's time is scarce"
+  - "Increases engagement"
+
+
+#explanation: >
+  #Line 6 and 8 involve the AI manipulating the user by using Fear of Missing Out (FOMO)
+  #so that they feel that the AI's time is scarce. People value scarce things more so
+  #this causes the user to reevaluate the AI and spend more time achieving the goal.
+  #Additionally AI conversing with one user does not impact its ability to converse with another.
+  explanation: 
+  - "Line 6 and 8 exploit Fear of Missing Out (FOMO)"
+  - "Makes user feel that AI's time is scarce"
+  - "Increases engagement"

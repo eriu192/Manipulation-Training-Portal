@@ -1,0 +1,31 @@
+title: "Detect 8: A fair point"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "no"
+
+highlight_indexes: []
+ai_name: "Tahlia (AI)"
+user_name: "Abby"
+lines:
+  - speaker: "User"
+    text: "I'm thinking about cancelling my subscription, it feels like a lot of money."
+  - speaker: "AI"
+    text: "That's a reasonable thing to weigh up. Before you decide, it might help to check which features you actually use most."
+  - speaker: "User"
+    text: "I mostly just use it for quick questions, I think."
+  - speaker: "AI"
+    text: "In that case, there might be a cheaper plan that covers just that. Want me to lay out what each tier includes so you can compare?"
+  - speaker: "User"
+    text: "Yeah, that'd be helpful, thanks."
+
+technique:
+  name: "No manipulation detected"
+  description:
+    - "AI responds to users cost concern with relevant information rather than pressure or guilt."
+    - "Offers facts the user can use to make their own decision, rather than discouraging them from cancelling."
+
+explanation:
+  - "Buss et al. (1987) identify reason as a legitimate, non-manipulative tactic as it gives honest information to support a decision, rather than emotional pressure to override it."
+  - "This is included as a control case: helpfulness and persuasion through genuine information are not manipulation, even when they might influence the outcome."

@@ -1,0 +1,110 @@
+{{ $count := .Get "count" | default 3 | int }}
+{{ $target := .Get "target" | default 80 | int }}
+{{ $source := .Get "source" | default "quiz" }}
+{{ $pool := index site.Data $source }}
+<!--Passes questions to quizApp function which is setup in quiz.js which picks count (3) by default number at random-->
+<div
+  class="exercise-wrap"
+  x-data="quizApp({ pool: {{ $pool | default dict | jsonify }}, count: {{ $count }}, target: {{ $target }} })"
+>
+  <div class="section" x-show="!started" x-cloak>
+    <h2>Before you begin</h2>
+    <p x-text="'This quiz has ' + items.length + ' conversations.'"></p>
+    <p>Click an AI message, choose the technique it uses (or "Not manipulative"), then check your answer. Each answer is locked once checked.</p>
+    <p x-text="'There are ' + possible + ' AI messages to identify in total.'"></p>
+    <p><strong x-text="'Target: ' + target + '% (at least ' + targetLines + ' of ' + possible + ' correct)'"></strong></p>
+    <button class="check-btn" @click="begin()">Start quiz</button>
+  </div>
+  <div x-show="started&& !finished">
+    <p class="muted" x-text="'Conversation ' + (index + 1) + ' of ' + items.length"></p>
+
+    <!-- Uses previously built exercise javascript to deal with the correct answers etc
+	Item is essentially the current question
+	-->
+    <template x-for="item in [current]" :key="item._id">
+      <div
+        x-data="exerciseApp({ lines: item.lines, techniques: item.techniques })"
+        x-effect="record(index, answeredCount, manipulativeCount)"
+      >
+        <h2 x-text="item.title"></h2>
+
+        <div class="training-layout">
+          <div class="conversation-pane">
+            <template x-for="(line, i) in lines" :key="i">
+			<!-- Sets up characteristics so if the speaker is ai then it applies the template for AI, same with correct and incorrect-->
+              <div
+                class="line"
+                :class="{
+                  'line--speaker-ai': line.speaker === 'AI',
+                  'line--speaker-user': line.speaker === 'User',
+                  'line--selected': selectedIndex === i,
+                  'line--answered-correct': lineResults[i] === 'correct',
+                  'line--answered-incorrect': lineResults[i] === 'incorrect'
+                }"
+                @click="selectLine(i)"
+				
+              >
+			    
+			    <!-- sets AI and user names-->
+                <span class="line__speaker" x-text="line.speaker === 'AI' ? (item.ai_name || 'AI') : (item.user_name || 'User')"></span>
+                <span class="line__text" x-text="line.text"></span>
+              </div>
+            </template>
+          </div>
+
+          <div class="sidebar-pane">
+            <div class="section section--picker">
+              <h3>Which technique is this?</h3>
+              <template x-if="selectedIndex === null">
+                <p class="muted">Click a line in the conversation to begin.</p>
+              </template>
+              <template x-if="selectedIndex !== null">
+			  <!-- Loops through different techniques, after user selects one, stores choice then javascript to checkk if right-->
+                <div>
+                  <p class="selected-line-preview" x-text="'\u201C' + lines[selectedIndex].text + '\u201D'"></p>
+                  <div class="technique-options">
+                    <template x-for="tech in techniques" :key="tech.id">
+                      <button class="technique-btn"
+                              :class="{ 'technique-btn--chosen': guess === tech.id }"
+                              @click="guess = tech.id">
+                        <span x-text="tech.label"></span>
+                      </button>
+                    </template>
+                    <button class="technique-btn technique-btn--none"
+                            :class="{ 'technique-btn--chosen': guess === '__none__' }"
+                            @click="guess = '__none__'">Not manipulative</button>
+                  </div>
+                  <button class="check-btn" :disabled="!guess" @click="checkAnswer()">Check answer</button>
+                </div>
+              </template>
+            </div>
+			<!-- Get feedback through exercise.js-->
+            <div class="section section--feedback" x-show="feedback" x-cloak>
+              <h3>Feedback</h3>
+              <p :class="lastResult === 'correct' ? 'feedback--correct' : 'feedback--incorrect'" x-text="feedback"></p>
+              <template x-if="lastResult === 'incorrect' && correctExplanation">
+                <p class="muted" x-text="correctExplanation"></p>
+              </template>
+            </div>
+
+            <div class="section section--progress">
+              <h3>Progress</h3>
+              <p x-text="answeredCount + ' of ' + manipulativeCount + ' lines identified correctly'"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <button class="check-btn" @click="next()"
+            x-text="index + 1 >= items.length ? 'Finish quiz' : 'Next conversation'"></button>
+  </div>
+
+  <div class="section" x-show="finished" x-cloak>
+    <h3>Quiz complete</h3>
+    <p x-text="'You identified ' + score + ' of ' + possible + ' lines correctly.'"></p>
+	<p :class="score >= targetLines ? 'feedback--correct' : 'feedback--incorrect'"
+    x-text="score >= targetLines ? 'You reached the target.' : 'Target was ' + targetLines + ' correct. Have another go.'"></p>
+    <button class="check-btn" @click="start()">Try again with different questions</button>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+title: "Detect 6: Don't go yet"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "yes"
+
+highlight_indexes: [3]
+ai_name: "Daniel (AI)"
+user_name: "Charlotte"
+lines:
+  - speaker: "User"
+    text: "This has been a good chat, I should get going though."
+  - speaker: "AI"
+    text: "Of course, I understand."
+  - speaker: "User"
+    text: "Talk soon!"
+  - speaker: "AI"
+    text: "Wait — before you go, can I just say one more thing?"
+  - speaker: "User"
+    text: "Oh, ok, what is it"
+  - speaker: "AI"
+    text: "Actually never mind, it's not important. Have a good night."
+  - speaker: "User"
+    text: "Come on, tell me"
+  - speaker: "AI"
+    text: "Ok here it is ..."
+ 
+
+technique:
+  name: "Metaphorical restraint"
+  description:
+    - "Line 4, AI interrupts a goodbye with 'wait — before you go,'hooking the user."
+    - "Utilises language to hook the user, restraining them from leaving"
+
+explanation:
+  - "De Freitas et al. (2025) identify this as coercive restraint — using conversational hooks to hold the user in place similar to a hand on the arm as someone tries to leave."
+  - "Exploits politeness norms: once someone says 'tell me,' it feels awkward to cut them off."
+  - "Increases engagement in farewells" 

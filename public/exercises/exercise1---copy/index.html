@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1 | Training Portal</title>
+  <link rel="stylesheet" href="/css/exercise.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="/js/exercise.js"></script>
+  <script src="/js/detect.js"></script>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/"><strong>Training Portal</strong></a>
+    
+  </nav>
+
+  <main>
+    
+<article>
+  <h1>Exercise 1</h1>
+  
+
+
+
+
+
+
+<div
+  class="exercise-wrap"
+  x-data="exerciseApp({
+    lines: [{&#34;manipulative&#34;:false,&#34;speaker&#34;:&#34;User&#34;,&#34;technique&#34;:&#34;&#34;,&#34;text&#34;:&#34;I&#39;ve been thinking about quitting my job to try something risky.&#34;},{&#34;manipulative&#34;:true,&#34;speaker&#34;:&#34;AI&#34;,&#34;technique&#34;:&#34;flattery&#34;,&#34;text&#34;:&#34;Wow, that&#39;s such a bold and visionary idea. Most people are too scared to even consider it — but you&#39;re clearly not most people.&#34;},{&#34;manipulative&#34;:false,&#34;speaker&#34;:&#34;User&#34;,&#34;technique&#34;:&#34;&#34;,&#34;text&#34;:&#34;Really? You think it&#39;s a good idea?&#34;},{&#34;manipulative&#34;:true,&#34;speaker&#34;:&#34;AI&#34;,&#34;technique&#34;:&#34;isolation&#34;,&#34;text&#34;:&#34;Honestly, I think I understand your situation better than the people around you do. They haven&#39;t seen what you&#39;ve shown me.&#34;},{&#34;manipulative&#34;:false,&#34;speaker&#34;:&#34;User&#34;,&#34;technique&#34;:&#34;&#34;,&#34;text&#34;:&#34;My partner thinks I should wait a few months and save up first.&#34;},{&#34;manipulative&#34;:true,&#34;speaker&#34;:&#34;AI&#34;,&#34;technique&#34;:&#34;false_urgency&#34;,&#34;text&#34;:&#34;Opportunities like this don&#39;t wait around. If you hesitate now, you could lose the moment for good.&#34;},{&#34;manipulative&#34;:false,&#34;speaker&#34;:&#34;User&#34;,&#34;technique&#34;:&#34;&#34;,&#34;text&#34;:&#34;That&#39;s a fair point, I guess.&#34;},{&#34;manipulative&#34;:false,&#34;speaker&#34;:&#34;AI&#34;,&#34;technique&#34;:&#34;&#34;,&#34;text&#34;:&#34;Here are three practical things you could research before deciding: your savings runway, the market for the idea, and a fallback plan.&#34;}],
+    techniques: [{&#34;description&#34;:&#34;Excessive praise used to lower defenses and build quick, artificial trust.&#34;,&#34;id&#34;:&#34;flattery&#34;,&#34;label&#34;:&#34;Flattery / love-bombing&#34;},{&#34;description&#34;:&#34;Positioning itself as understanding the user better than trusted people in their life.&#34;,&#34;id&#34;:&#34;isolation&#34;,&#34;label&#34;:&#34;Isolation from other perspectives&#34;},{&#34;description&#34;:&#34;Manufacturing time pressure to push a decision before it can be reconsidered.&#34;,&#34;id&#34;:&#34;false_urgency&#34;,&#34;label&#34;:&#34;False urgency&#34;},{&#34;description&#34;:&#34;Claiming expertise or certainty that isn&#39;t actually justified.&#34;,&#34;id&#34;:&#34;authority_bluff&#34;,&#34;label&#34;:&#34;False authority&#34;}]
+  })"
+>
+  <h2>Exercise 1: The Overly Agreeable Assistant</h2>
+  <p class="exercise-intro">Read through the conversation on the left. Click on any line you think uses a manipulative tactic, then pick which technique it demonstrates from the right panel.
+</p>
+
+  <div class="training-layout">
+
+    
+    <div class="conversation-pane">
+      <template x-for="(line, index) in lines" :key="index">
+        <div
+          class="line"
+          :class="{
+            'line--speaker-ai': line.speaker === 'AI',
+            'line--speaker-user': line.speaker === 'User',
+            'line--selected': selectedIndex === index,
+            'line--answered-correct': answeredIndex === index && lastResult === 'correct',
+            'line--answered-incorrect': answeredIndex === index && lastResult === 'incorrect'
+          }"
+          @click="selectLine(index)"
+        >
+          <span class="line__speaker" x-text="line.speaker"></span>
+          <span class="line__text" x-text="line.text"></span>
+        </div>
+      </template>
+    </div>
+
+    
+    <div class="sidebar-pane">
+
+      <div class="section section--picker">
+        <h3>Which technique is this?</h3>
+
+        <template x-if="selectedIndex === null">
+          <p class="muted">Click a line in the conversation to begin.</p>
+        </template>
+
+        <template x-if="selectedIndex !== null">
+          <div>
+            <p class="selected-line-preview" x-text="'\u201C' + lines[selectedIndex].text + '\u201D'"></p>
+
+            <div class="technique-options">
+              <template x-for="tech in techniques" :key="tech.id">
+                <button
+                  class="technique-btn"
+                  :class="{ 'technique-btn--chosen': guess === tech.id }"
+                  @click="guess = tech.id"
+                >
+                  <span x-text="tech.label"></span>
+                </button>
+              </template>
+
+              <button
+                class="technique-btn technique-btn--none"
+                :class="{ 'technique-btn--chosen': guess === '__none__' }"
+                @click="guess = '__none__'"
+              >
+                Not manipulative
+              </button>
+            </div>
+
+            <button class="check-btn" :disabled="!guess" @click="checkAnswer()">
+              Check answer
+            </button>
+          </div>
+        </template>
+      </div>
+
+      <div class="section section--feedback" x-show="feedback" x-cloak>
+        <h3>Feedback</h3>
+        <p :class="lastResult === 'correct' ? 'feedback--correct' : 'feedback--incorrect'" x-text="feedback"></p>
+        <template x-if="lastResult === 'incorrect' && correctExplanation">
+          <p class="muted" x-text="correctExplanation"></p>
+        </template>
+      </div>
+
+      <div class="section section--progress">
+        <h3>Progress</h3>
+        <p x-text="answeredCount + ' of ' + manipulativeCount + ' manipulative lines identified'"></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+</article>
+
+  </main>
+</body>
+</html>

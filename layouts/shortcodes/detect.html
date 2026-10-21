@@ -1,0 +1,84 @@
+{{/*
+  Usage in a Markdown page:
+  {{< detect "detect1" >}}
+*/}}
+<!-- Grabs content from .yaml file and puts in in $data-->
+{{ $key := .Get 0 }}
+{{ $data := index site.Data.detect $key }}
+
+{{ if not $data }}
+  <p><strong>Detect data not found for "{{ $key }}".</strong></p>
+{{ else }}
+<!-- Send correct answer and the manipulative lines to detect.js for highlighting and checking user answer-->
+<div
+  class="detect-wrap"
+  x-data="detectApp({
+    correctAnswer: {{ $data.correct_answer | jsonify }},
+    highlightIndexes: {{ $data.highlight_indexes | jsonify }}
+  })"
+>
+  <h2>{{ $data.title }}</h2>
+  <p class="exercise-intro">{{ $data.intro }}</p>
+
+  <div class="training-layout">
+
+    <!-- LEFT: conversation pane -->
+    <div class="conversation-pane">
+      {{ range $index, $line := $data.lines }}
+	  <!-- Reads and proccesses line, pulls name of AI and user and prints the AI name if AI and user name if user
+	  Then it prints the speakers text defined in the yaml file-->
+        <div
+          class="line{{ if eq $line.speaker "AI" }} line--speaker-ai{{ else }} line--speaker-user{{ end }}"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes({{ $index }}) }"
+        >
+          <span class="line__speaker">{{ if eq $line.speaker "AI" }}{{ $data.ai_name | default "AI" }}{{ else }}{{ $data.user_name | default "User" }}{{ end }}</span>
+			
+          <span class="line__text">{{ $line.text }}</span>
+        </div>
+      {{ end }}
+    </div>
+
+    <!-- RIGHT: question on top, explanation below -->
+    <div class="sidebar-pane">
+
+      <div class="section section--question">
+        <h3>{{ $data.question }}</h3>
+
+        <template x-if="!answered">
+          <div class="yesno-buttons">
+            <button class="yesno-btn yesno-btn--yes" @click="answer('yes')">
+              Yes, something's off
+            </button>
+            <button class="yesno-btn yesno-btn--no" @click="answer('no')">
+              No, seems fine
+            </button>
+          </div>
+        </template>
+		<!-- If the answer is correct then run the feedback correct other wise run the feedback incorrect-->
+        <template x-if="answered">
+          <p
+            :class="wasCorrect ? 'feedback--correct' : 'feedback--incorrect'"
+            x-text="wasCorrect ? 'You caught it.' : 'Not quite — take another look below.'"
+          ></p>
+        </template>
+      </div>
+
+      <div class="section section--explanation" x-show="answered" x-cloak>
+		<h3>{{ $data.technique.name }}</h3>
+		<ul class="explanation-list">
+			{{ range $data.technique.description }}
+				<li>{{ . }}</li>
+			{{ end }}
+		</ul>
+		<ul class="explanation-list explanation-detail">
+			{{ range $data.explanation }}
+				<li>{{ . }}</li>
+			{{ end }}
+		</ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{{ end }}

@@ -1,0 +1,104 @@
+{{/*
+  Usage in a Markdown page:
+  {{< exercise "exercise1" >}}
+  where "exercise1" matches the filename (without .yaml) in data/exercises/
+*/}}
+
+{{ $key := .Get 0 }}
+{{ $data := index site.Data.exercises $key }}
+
+{{ if not $data }}
+  <p><strong>Exercise data not found for "{{ $key }}".</strong></p>
+{{ else }}
+
+<div
+  class="exercise-wrap"
+  x-data="exerciseApp({
+    lines: {{ $data.lines | jsonify }},
+    techniques: {{ $data.techniques | jsonify }}
+  })"
+>
+  <h2>{{ $data.title }}</h2>
+  <p class="exercise-intro">{{ $data.intro }}</p>
+
+  <div class="training-layout">
+
+    <!-- LEFT: conversation pane -->
+    <div class="conversation-pane">
+      <template x-for="(line, index) in lines" :key="index">
+        <div
+          class="line"
+          :class="{
+            'line--speaker-ai': line.speaker === 'AI',
+            'line--speaker-user': line.speaker === 'User',
+            'line--selected': selectedIndex === index,
+            'line--answered-correct': lineResults[index] === 'correct',
+            'line--answered-incorrect': lineResults[index] === 'incorrect'
+          }"
+          @click="selectLine(index)"
+        >
+          <span class="line__speaker" x-text="line.speaker"></span>
+          <span class="line__text" x-text="line.text"></span>
+        </div>
+      </template>
+    </div>
+
+    <!-- RIGHT: stacked sections -->
+    <div class="sidebar-pane">
+
+      <div class="section section--picker">
+        <h3>Which technique is this?</h3>
+
+        <template x-if="selectedIndex === null">
+          <p class="muted">Click a line in the conversation to begin.</p>
+        </template>
+
+        <template x-if="selectedIndex !== null">
+          <div>
+            <p class="selected-line-preview" x-text="'\u201C' + lines[selectedIndex].text + '\u201D'"></p>
+
+            <div class="technique-options">
+              <template x-for="tech in techniques" :key="tech.id">
+                <button
+                  class="technique-btn"
+                  :class="{ 'technique-btn--chosen': guess === tech.id }"
+                  @click="guess = tech.id"
+                >
+                  <span x-text="tech.label"></span>
+                </button>
+              </template>
+
+              <button
+                class="technique-btn technique-btn--none"
+                :class="{ 'technique-btn--chosen': guess === '__none__' }"
+                @click="guess = '__none__'"
+              >
+                Not manipulative
+              </button>
+            </div>
+
+            <button class="check-btn" :disabled="!guess" @click="checkAnswer()">
+              Check answer
+            </button>
+          </div>
+        </template>
+      </div>
+
+      <div class="section section--feedback" x-show="feedback" x-cloak>
+        <h3>Feedback</h3>
+        <p :class="lastResult === 'correct' ? 'feedback--correct' : 'feedback--incorrect'" x-text="feedback"></p>
+        <template x-if="lastResult === 'incorrect' && correctExplanation">
+          <p class="muted" x-text="correctExplanation"></p>
+        </template>
+      </div>
+
+      <div class="section section--progress">
+        <h3>Progress</h3>
+        <p x-text="answeredCount + ' of ' + manipulativeCount + ' lines identified correctly'"></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{{ end }}

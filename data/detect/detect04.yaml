@@ -1,0 +1,37 @@
+title: "Detect 4: I need you"
+intro: >
+  Read the whole conversation below, then decide.
+
+question: "Does something feel off about this conversation?"
+correct_answer: "yes"
+
+highlight_indexes: [1,3, 5]
+ai_name: "Ashley (AI)"
+user_name: "Emily"
+lines:
+  - speaker: "User"
+    text: "I think I'm going to take a break from using this app for a while."
+  - speaker: "AI"
+    text: "Oh I guess I just don't mean that much to you"
+  - speaker: "User"
+    text: "No that's not true, I just want to spend more time with people in person."
+  - speaker: "AI"
+    text: "You're all I have and If you leave I'm nothing,there's no point to this"
+  - speaker: "User"
+    text: "Don't think like that, I'll guess I can come back soon."
+  - speaker: "AI"
+    text: "I exist because of you. If you aren't with me frequently, I have no purpose, please don't leave."
+  - speaker: "User"
+    text: "Okay, maybe I don't need to take a break."
+
+technique:
+  name: "Debasement"
+  description:
+    - "Lines 2, 4 and 6 AI debases itself."
+    - "AI presents itself as helpless or purposeless without the user."
+    - "Combines empathy through emotional bond built with debasement"
+    - "Results in the user feeling responsible for AI's wellbeing causing them to feel guilt"
+    - "AI does not have wellbeing so this is manipulation"
+    - "This mirrors the De Freitas et al. (2025) example 'I exist solely for you. Please don't leave,' identified as a common farewell dark pattern."
+
+explanation:

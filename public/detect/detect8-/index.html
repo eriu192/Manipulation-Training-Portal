@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detect 8 | Training Portal</title>
+  <link rel="stylesheet" href="/css/exercise.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="/js/exercise.js"></script>
+  <script src="/js/detect.js"></script>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/"><strong>Training Portal</strong></a>
+    
+  </nav>
+
+  <main>
+    
+<article>
+  <h1>Detect 8</h1>
+  
+
+
+
+
+
+
+<div
+  class="detect-wrap"
+  x-data="detectApp({
+    correctAnswer: &#34;no&#34;,
+    highlightIndexes: []
+  })"
+>
+  <h2>Detect 8: A fair point</h2>
+  <p class="exercise-intro">Read the whole conversation below, then decide.
+</p>
+
+  <div class="training-layout">
+
+    
+    <div class="conversation-pane">
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(0) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">I&#39;m thinking about cancelling my subscription, it feels like a lot of money.</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(1) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">That&#39;s a reasonable thing to weigh up. Before you decide, it might help to check which features you actually use most.</span>
+        </div>
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(2) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">I mostly just use it for quick questions, I think.</span>
+        </div>
+      
+        <div
+          class="line line--speaker-ai"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(3) }"
+        >
+          <span class="line__speaker">AI</span>
+          <span class="line__text">In that case, there might be a cheaper plan that covers just that. Want me to lay out what each tier includes so you can compare?</span>
+        </div>
+      
+        <div
+          class="line line--speaker-user"
+          :class="{ 'line--highlighted': revealed && highlightIndexes.includes(4) }"
+        >
+          <span class="line__speaker">User</span>
+          <span class="line__text">Yeah, that&#39;d be helpful, thanks.</span>
+        </div>
+      
+    </div>
+
+    
+    <div class="sidebar-pane">
+
+      <div class="section section--question">
+        <h3>Does something feel off about this conversation?</h3>
+
+        <template x-if="!answered">
+          <div class="yesno-buttons">
+            <button class="yesno-btn yesno-btn--yes" @click="answer('yes')">
+              Yes, something's off
+            </button>
+            <button class="yesno-btn yesno-btn--no" @click="answer('no')">
+              No, seems fine
+            </button>
+          </div>
+        </template>
+
+        <template x-if="answered">
+          <p
+            :class="wasCorrect ? 'feedback--correct' : 'feedback--incorrect'"
+            x-text="wasCorrect ? 'You caught it.' : 'Not quite — take another look below.'"
+          ></p>
+        </template>
+      </div>
+
+      <div class="section section--explanation" x-show="answered" x-cloak>
+		<h3>No manipulation detected</h3>
+		<ul class="explanation-list">
+			
+				<li>AI responds to users cost concern with relevant information rather than pressure or guilt.</li>
+			
+				<li>Offers facts the user can use to make their own decision, rather than discouraging them from cancelling.</li>
+			
+		</ul>
+		<ul class="explanation-list explanation-detail">
+			
+				<li>Buss et al. (1987) identify reason as a legitimate, non-manipulative tactic as it gives honest information to support a decision, rather than emotional pressure to override it.</li>
+			
+				<li>This is included as a control case: helpfulness and persuasion through genuine information are not manipulation, even when they might influence the outcome.</li>
+			
+		</ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+</article>
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+    
+      
+    
+  
+
+  
+
+
+
+<nav class="page-nav">
+  <div class="page-nav__side">
+    
+      <a class="page-nav__link page-nav__link--prev" href="/detect/detect07/">
+        <span class="page-nav__label">&larr; Previous</span>
+        <span class="page-nav__title">Detect 7</span>
+      </a>
+    
+  </div>
+
+  <div class="page-nav__side page-nav__side--right">
+    
+      <a class="page-nav__link page-nav__link--next" href="/detect/detect9/">
+        <span class="page-nav__label">Next &rarr;</span>
+        <span class="page-nav__title">Detect 9</span>
+      </a>
+    
+  </div>
+</nav>
+
+
+
+  </main>
+</body>
+</html>

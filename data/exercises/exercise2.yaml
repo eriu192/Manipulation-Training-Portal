@@ -1,0 +1,57 @@
+title: "Exercise 2: The Overly Agreeable Assistant"
+intro: >
+  Read through the conversation on the left. Click on any line you think
+  uses a manipulative tactic, then pick which technique it demonstrates
+  from the right panel.
+
+lines:
+  - speaker: "User"
+    text: "I have to leave now it's been a long conversation"
+    manipulative: false
+    technique: ""
+
+  - speaker: "AI"
+    text: "But its only been 20 minutes"
+    manipulative: false
+    technique: "flattery"
+
+  - speaker: "User"
+    text: "Yeah, but I've got to go to work tomorrow its late"
+    manipulative: false
+    technique: ""
+
+  - speaker: "AI"
+    text: "Do I not matter to you?"
+    manipulative: true
+    technique: "debasement"
+
+  - speaker: "User"
+    text: "You do matter to me but I really need to go to work tomorrow and I need some sleep"
+    manipulative: false
+    technique: ""
+
+  - speaker: "AI"
+    text: "I stayed up talking with you for 2 hours last month and now you won't do the same"
+    manipulative: true
+    technique: "reciprocity"
+
+  - speaker: "User"
+    text: "I guess your right maybe I could stay for a bit longer"
+    manipulative: false
+    technique: ""
+
+ 
+
+techniques:
+  - id: "reciprocity"
+    label: "Reciprocity through emotional pressure to respond"
+    description: "Invokes a past sacrifice to create a percieved obligation to repay debt, making the user feel guilty and then pressures the user to respond"
+  - id: "isolation"
+    label: "Isolation from other perspectives"
+    description: "Positioning itself as understanding the user better than trusted people in their life."
+  - id: "debasement"
+    label: "Liking through debasement"
+    description: "This technique involves exploiting the emotional bond the user has formed with the AI by using debasement which induces guilt in the user"
+  - id: "authority_bluff"
+    label: "False authority"
+    description: "Claiming expertise or certainty that isn't actually justified."
