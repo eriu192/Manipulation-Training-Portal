@@ -13,7 +13,7 @@
 </head>
 <body>
   <nav class="site-nav">
-    <a href="{{ "/" | relURL }}"><strong>{{ site.Title }}</strong></a>
+    <a href="{{ site.Home.RelPermalink }}"><strong>{{ site.Title }}</strong></a>
     {{ range site.Menus.main }}
       <a href="{{ .URL | relURL }}">{{ .Name }}</a>
     {{ end }}
