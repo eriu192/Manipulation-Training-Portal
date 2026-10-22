@@ -15,4 +15,7 @@ menu:
     - name: "Exercises"
       url: "/exercises/"
       weight: 10
+caches:
+  images:
+    dir: :cacheDir/images
 

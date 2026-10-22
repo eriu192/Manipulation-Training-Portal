@@ -3,3 +3,6 @@ locale = 'en-us'
 title = 'Training Portal'
 
 #theme = 'lugo'
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
