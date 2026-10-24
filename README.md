@@ -1,0 +1,1 @@
+This interactive training portal which is designed to teach people to identify manipulative tactics used in conversations with AI. This is live at: https://eriu192.github.io/Manipulation-Training-Portal/. To build a live instance install the Hugo static site generator and type hugo server. 
